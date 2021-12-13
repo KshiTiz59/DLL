@@ -1,6 +1,7 @@
 // algorithm for circularly doubly link list
 
 (1)=>  Traversing 
+
 steps 1: if head==NULL 
         write  "underflow"
        go to step 6 [end of if]
@@ -11,8 +12,140 @@ Step 5: PTR = PTR → next
 Step 6: Exit
 
 
-(2)=>insertion beginning end and arbitary node.
+(2)=>insertion beginning ,end and arbitary node.
 
-// at the beginning 
+// at the beginning
+
+Step 1: IF PTR = NULL
+Write OVERFLOW
+Go to Step 13
+[END OF IF]
+
+Step 2: SET NEW_NODE = PTR
+Step 3: SET PTR = PTR -> NEXT
+Step 4: SET NEW_NODE -> DATA = VAL
+Step 5: SET TEMP = HEAD
+Step 6: Repeat Step 7 while TEMP -> NEXT != HEAD
+Step 7: SET TEMP = TEMP -> NEXT
+[END OF LOOP]
+
+Step 8: SET TEMP -> NEXT = NEW_NODE
+Step 9: SET NEW_NODE -> PREV = TEMP
+Step 1 : SET NEW_NODE -> NEXT = HEAD
+Step 11: SET HEAD -> PREV = NEW_NODE
+Step 12: SET HEAD = NEW_NODE
+Step 13: EXIT
+
+------------//code ----------------
+allocate the memory space for the new node 
+      ptr=(struct node *)malloc(sizeof(sruct node));
+      if head==null (node will  be  the first node in the list)
+     { 
+      head = ptr;  
+      ptr -> next = head;   
+      ptr -> prev = head;
+      } 
+      if head!=null (Traverse till the last node)
+      temp = head;   
+      while(temp -> next != head)  
+      {  
+       temp = temp -> next;   
+       } 
+       temp -> next = ptr;  
+       ptr -> prev = temp;  
+       head -> prev = ptr;  
+       ptr -> next = head;  
+        head = ptr;
+ ---------------------------------------
+ // at the end
+ 
+Step 1: IF PTR = NULL
+Write OVERFLOW
+Go to Step 12
+[END OF IF]
+
+Step 2: SET NEW_NODE = PTR
+Step 3: SET PTR = PTR -> NEXT
+Step 4: SET NEW_NODE -> DATA = VAL
+Step 5: SET NEW_NODE -> NEXT = HEAD
+Step 6: SET TEMP = HEAD
+Step 7: Repeat Step 8 while TEMP -> NEXT != HEAD
+Step 8: SET TEMP = TEMP -> NEXT
+[END OF LOOP]
+
+Step 9: SET TEMP -> NEXT = NEW_NODE
+Step 10: SET NEW_NODE -> PREV = TEMP
+Step 11: SET HEAD -> PREV = NEW_NODE
+Step 12: EXIT
+
+-------------//code--------------
+allocate the memory space for the new node 
+      ptr=(struct node *)malloc(sizeof(sruct node));
+      if head==null (node will  be  the first node in the list)
+      {
+      head = ptr;  
+      ptr -> next = head;   
+      ptr -> prev = head;
+      }
+       head -> prev = ptr;  
+       ptr -> next = head; 
+       temp->next=ptr;
+       ptr->prev=temp;
+     ------------------------------------------ 
+       
+// at an arbitary position 
+
+step 1: create new node 
+step 2:traverse the list using (temp) pointer just before the given position
+       temp=temp->next;
+step 3:newNode->next=temp-next;
+step 4: (temp->next)->prev = newNode;
+step 5: temp->next = newNode;
+step 6: newNode->prev = temp;
+
+       
+(3)=>Deletion (Beginning, End and an arbitrary node)
+
+// at the beginning
+
+Step 1: IF HEAD = NULL
+Write UNDERFLOW
+Go to Step 8
+[END OF IF]
+
+Step 2: SET TEMP = HEAD
+Step 3: Repeat Step 4 while TEMP -> NEXT != HEAD
+Step 4: SET TEMP = TEMP -> NEXT
+[END OF LOOP]
+
+Step 5: SET TEMP -> NEXT = HEAD -> NEXT
+Step 6: SET HEAD -> NEXT -> PREV = TEMP
+Step 7: FREE HEAD
+Step 8: SET HEAD = TEMP -> NEXT
+
+// at the end
+
+Step 1: IF HEAD = NULL
+Write UNDERFLOW
+Go to Step 8
+[END OF IF]
+
+Step 2: SET TEMP = HEAD
+Step 3: Repeat Step 4 while TEMP -> NEXT != HEAD
+Step 4: SET TEMP = TEMP -> NEXT
+[END OF LOOP]
+
+Step 5: SET TEMP -> PREV -> NEXT = HEAD
+Step 6: SET HEAD -> PREV = TEMP -> PREV
+Step 7: FREE TEMP
+Step 8: EXIT
+
+// at the arbitary position
+
+
+
+
+
+
 
 
