@@ -1,0 +1,18 @@
+// algorithm for circularly doubly link list
+
+(1)=>  Traversing 
+steps 1: if head==NULL 
+        write  "underflow"
+       go to step 6 [end of if]
+step 2: set ptr=Head
+Step 3: Repeat step 4 and 5 while PTR != NULL
+Step 4: Write PTR → data
+Step 5: PTR = PTR → next
+Step 6: Exit
+
+
+(2)=>insertion beginning end and arbitary node.
+
+// at the beginning 
+
+
