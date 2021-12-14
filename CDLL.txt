@@ -1,3 +1,6 @@
+
+
+
 // algorithm for circularly doubly link list
 
 (1)=>  Traversing 
@@ -142,10 +145,31 @@ Step 8: EXIT
 
 // at the arbitary position
 
-
-
-
-
+step1:if list is not empty we define two pointers (curr) and (prev1).
+       curr=first node ,prev1=NULL
+step2:traverse the list using (curr)pointer to find the node to be deleted
+      curr=next node ,prev1=curr
+step3:if the node is found ,check if it is the only node in the list.If yes
+      start=NULL and free the node pointing by (curr)
+step4:f the list has one node , check if it is the first node of the list
+       if(curr==start)
+       prev1=start->prev
+       After prev reaches the last node
+       start = start -> next
+       prev1-> next = start
+       start -> prev = prev1
+       free the node pointing by curr
+step5: If curr is not the first node, we check if it is the last node in the list      
+        if(curr -> next == start)
+        prev1 -> next = start
+        start->prev=prev1
+        free the node pointing by curr
+ step6: If the node to be deleted is neither the first node nor the last node      
+        declre the pointer (temp)
+        temp=curr->next
+        prev_1 -> next = temp
+        temp ->prev = prev_1
+        free te node pointing by curr
 
 
 
