@@ -8,7 +8,7 @@
 
 steps 1: if head==NULL 
         write  "underflow"
-       go to step 6 [end of if]
+        go to step 6 [end of if]
 step 2: set ptr=Head
 Step 3: Repeat step 4 and 5 while PTR != NULL
 Step 4: Write PTR → data
@@ -42,9 +42,9 @@ Step 13: EXIT
 
 ------------//code ----------------
 allocate the memory space for the new node 
-      ptr=(struct node *)malloc(sizeof(sruct node));
-      if head==null (node will  be  the first node in the list)
-     { 
+ptr=(struct node *)malloc(sizeof(sruct node));
+if head==null (node will  be  the first node in the list)
+{ 
       head = ptr;  
       ptr -> next = head;   
       ptr -> prev = head;
@@ -53,13 +53,13 @@ allocate the memory space for the new node
       temp = head;   
       while(temp -> next != head)  
       {  
-       temp = temp -> next;   
-       } 
-       temp -> next = ptr;  
-       ptr -> prev = temp;  
-       head -> prev = ptr;  
-       ptr -> next = head;  
-        head = ptr;
+      temp = temp -> next;   
+      } 
+      temp -> next = ptr;  
+      ptr -> prev = temp;  
+      head -> prev = ptr;  
+      ptr -> next = head;  
+      head = ptr;
  ---------------------------------------
  // at the end
  
@@ -91,10 +91,10 @@ allocate the memory space for the new node
       ptr -> next = head;   
       ptr -> prev = head;
       }
-       head -> prev = ptr;  
-       ptr -> next = head; 
-       temp->next=ptr;
-       ptr->prev=temp;
+      head -> prev = ptr;  
+      ptr -> next = head; 
+      temp->next=ptr;
+      ptr->prev=temp;
      ------------------------------------------ 
        
 // at an arbitary position 
@@ -160,17 +160,17 @@ step4:f the list has one node , check if it is the first node of the list
        prev1-> next = start
        start -> prev = prev1
        free the node pointing by curr
-step5: If curr is not the first node, we check if it is the last node in the list      
-        if(curr -> next == start)
-        prev1 -> next = start
-        start->prev=prev1
-        free the node pointing by curr
- step6: If the node to be deleted is neither the first node nor the last node      
-        declre the pointer (temp)
-        temp=curr->next
-        prev_1 -> next = temp
-        temp ->prev = prev_1
-        free te node pointing by curr
+step5:If curr is not the first node, we check if it is the last node in the list      
+       if(curr -> next == start)
+       prev1 -> next = start
+       start->prev=prev1
+       free the node pointing by curr
+ step6:If the node to be deleted is neither the first node nor the last node      
+       declre the pointer (temp)
+       temp=curr->next
+       prev_1 -> next = temp
+       temp ->prev = prev_1
+       free te node pointing by curr
 
 
 
