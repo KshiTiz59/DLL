@@ -1,3 +1,18 @@
+//Ques:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+//  Design, Develop and Implement a menu driven Program in C for the following operations on Doubly Linked List (DLL) of Employee Data with the fields: Employee id, Name, Dept,
+//  Designation, Sal, PhNo
+//1.Create a DLL of N Employees Data by using end insertion.
+//2.Display the status of DLL and count the number of nodes in it
+//3.Perform Insertion and deletion at End of DLL.
+//4.Perform Insertion and deletion at Front of DLL.
+//5.Perform Insertion in DLL after a given Employee id Details.
+//6.Perform the deletion of particular employee after the given Employee id Details.
+//7.Find the Employee Details having maximum and minimum salary.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Soln:
 
 #include<stdio.h>
 #include<stdlib.h>
