@@ -156,6 +156,85 @@ int main()
 
 Q3:
 
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+  public :
+int data;
+Node *next;
+Node *prev;
+};
+
+Node *push(Node **head_ref,int d)
+{
+  Node *new_node=new Node();
+  new_node->data=d;
+  new_node->next=*head_ref;
+  new_node->prev=NULL;
+  if(*head_ref!=NULL)
+  {
+    (*head_ref)->prev=new_node;
+  }
+  *head_ref=new_node;
+  return *head_ref;
+}
+void Display(Node *node)
+{
+  while(node!=NULL)
+  {
+    cout<<node->data<<"->";
+    node=node->next;
+  }
+  cout<<"END"<<endl;
+}
+Node * clockwise(Node **head_ref,int N)
+{
+    Node *p=*head_ref;
+    Node *q=*head_ref;
+    Node *r=*head_ref;
+    while(q->next!=NULL)
+    {
+        q=q->next;
+    }
+    
+    for(int i=0;i<N;i++)
+    {
+        r=r->next;
+    }
+    r=r->next;
+    r->prev=NULL;
+    for(int i=0;i<N;i++)
+    {
+    q->next=p;
+    p->prev=q;
+    
+    return r;
+    }
+}
+
+int main()
+  {
+  int n,N;
+  Node *head;
+    head=NULL;
+  cout<<"Enter the value of N:";
+  cin>>n;
+  for(int i=1;i<=n;i++)
+  {
+    int data;
+    cout<<"Enter the data of "<<(n-i+1)<<" node :";
+    cin>>data;
+    head=push(&head,data);
+  }
+  cout<<"Link list is :"<<endl;
+  Display(head);
+  cout<<"Enter the value of N to shift the link list :";
+ cin>>N;
+ cout<<"After clockwise rotation of link list by"<<N<<"position:"<<endl;
+ head=clockwise(&head,N); 
+ Display(head);
+}
 
 
   
