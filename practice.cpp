@@ -162,10 +162,7 @@ int main()
 
 Q3:
 
-// C++ implementation to count triplets in a sorted doubly linked list
-// whose sum is equal to a given value 'x'
 #include <bits/stdc++.h>
-
 using namespace std;
 
 // structure of node of doubly linked list
@@ -241,7 +238,7 @@ int main()
 Q4:
 // for clockwise
 
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 class Node
 {
@@ -273,29 +270,26 @@ void Display(Node *node)
   }
   cout<<"END"<<endl;
 }
-Node * clockwise(Node **head_ref,int N)
+void clockwise(Node **head_ref,int N)
 {
     Node *p=*head_ref;
-    Node *q=*head_ref;
-    Node *r=*head_ref;
-    while(q->next!=NULL)
-    {
-        q=q->next;
+    int count =1;
+    while(count<N && p!=NULL){
+        p=p->next;
+        count++;
     }
-    
-    for(int i=0;i<N;i++)
+    if(p==NULL)
+    return ;
+    Node* q=p;
+    while(p->next!=NULL)
     {
-        r=r->next;
+        p=p->next;
     }
-    r=r->next;
-    r->prev=NULL;
-    for(int i=0;i<N;i++)
-    {
-    q->next=p;
-    p->prev=q;
-    
-    return r;
-    }
+    p->next=*head_ref;
+    (*head_ref)->prev=p;
+    (*head_ref)=q->next;
+    (*head_ref)->prev=NULL;
+    q->next=NULL;
 }
 
 int main()
@@ -314,11 +308,12 @@ int main()
   }
   cout<<"Link list is :"<<endl;
   Display(head);
+  Node *Head=head;
   cout<<"Enter the value of N to shift the link list :";
  cin>>N;
- cout<<"After clockwise rotation of link list by"<<N<<"position:"<<endl;
- head=clockwise(&head,N); 
- Display(head);
+ cout<<"After clockwise rotation of link list by "<<N<<" position:"<<endl;
+ clockwise(&Head,N); 
+ Display(Head);
 }
 
 //for anticlockwise
